@@ -11,6 +11,7 @@ class ArtistaSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class AlbumSerializer(serializers.ModelSerializer):
+    artista = ArtistaSerializer(read_only=True) #ja busca o objeto artista ao inves do id
     class Meta:
         model = Album
         fields = '__all__' # Generico sem campos, somente o nome do álbum.

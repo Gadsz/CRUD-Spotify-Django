@@ -64,6 +64,6 @@ class AlbumListCreateView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
-        albums = AlbumSerializer.objects.all()
+        albums = Album.objects.all()
         serializer = AlbumSerializer(albums, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
